@@ -11,15 +11,28 @@
 #import "Product.h"
 #import "CarDelegate.h"
 #import "catalog.h"
+#import "CartItem.h"
+#import "cart.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate, CarDelegate>{
     NSMutableArray *cart;
 }
-@property (weak, nonatomic) IBOutlet UITableView *table;
+
 
 @end
 
 @implementation ViewController
+-(void)incQantity:(NSString *)productCode{
+    [self.cart incQuantity:productCode];
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
+    [self.table reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+-(void)decQuantity:(NSString *)productCode{
+    [self.cart decQuantity:productCode];
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
+    [self.table reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+}
 -(void)addItem:(id)sender{
     NSIndexPath *indexPath = [self.table indexPathForCell:sender];
     Product *product = [[catalog defaultCatalog] productAt:indexPath.row];

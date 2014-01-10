@@ -10,5 +10,7 @@
 
 @protocol CarDelegate <NSObject>
 -(void) addItem:(id)sender;
+-(void) incQantity:(NSString *)productCode;
+-(void) decQuantity:(NSString *)productCode;
 
 @end

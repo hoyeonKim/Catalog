@@ -15,5 +15,6 @@
 @property (strong, nonatomic)NSString *imageName;
 
 +(id) product:(NSString *)name price:(NSString *)price image:(NSString *)image;
+-(BOOL)isEqualProduct:(NSString *)productCode;
 
 @end

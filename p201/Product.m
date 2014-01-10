@@ -10,10 +10,13 @@
 
 @implementation Product
 +(id) product:(NSString *)name price:(NSString *)price image:(NSString *)image{
-    Product *item=[[Product alloc]init];
-    item.name = name;
-    item.price = price;
-    item.imageName = image;
-    return item;
+    Product *items=[[Product alloc]init];
+    items.name = name;
+    items.price = price;
+    items.imageName = image;
+    return items;
+}
+-(BOOL)isEqualProduct:(NSString *)productCode{
+    return [self.code isEqualTosTring:productCode];
 }
 @end
